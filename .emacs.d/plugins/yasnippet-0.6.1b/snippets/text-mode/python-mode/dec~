@@ -1,8 +1,0 @@
-# expand-env: ((yas/indent-line 'fixed))
-# --
-def ${1:decorator}(function):
-    def inner(*args, **kwargs):
-        ${2:#Do Something first}
-        function(*args, **kwargs)
-        ${3:#Do something after}
-    return inner

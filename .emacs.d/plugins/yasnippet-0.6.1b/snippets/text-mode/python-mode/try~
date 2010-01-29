@@ -1,4 +1,0 @@
-try:
-    ${1:do_something()}
-except (${2:Exception}):
-    ${3:do_something_else()}

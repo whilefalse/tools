@@ -90,29 +90,35 @@
 (global-set-key "\M-[1;5C" 'forward-word)
 (global-set-key "\M-[1;5D" 'backward-word)
 
-;PYTHON STUFF
-(defun python-interpreter ()
-  (interactive)
-  (split-window-horizontally)
-  (run-python)
-  (other-window 1)
-  (python-send-buffer)
-  )
-(add-hook 'python-mode-hook
- '(lambda () (global-set-key "\C-xh" 'python-describe-symbol)
-             (global-set-key "\C-xi" 'run-python)
-             (global-set-key "\C-xi" 'python-interpreter)
-    ))
-
 ;PLUGINS
-;yasnippet - this rocks :)
-(add-to-list 'load-path
-             "~/.emacs.d/plugins/yasnippet-0.6.1b")
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins"))
+(progn (cd "~/.emacs.d/plugins")
+       (normal-top-level-add-subdirs-to-load-path))
+
+;PYTHON SHIZZLE
+(require 'init_python)
+
+;Flymake, python syntax checking - awesome!!!
+;Needs pyflakes
+(load-library "flymakecustom")
+
+;yasnippet
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet-0.6.1b/snippets")
 
-;ido buffer switcher - Not sure if i like this??
+;Auto complete
+(require 'auto-complete)
+(setq ac-auto-start nil)
+(global-set-key  "\t" 'ac-start)
+
+;Git
+;(require 'git)
+
+;Hippie expand
+;(global-set-key "\t" 'hippie-expand)
+
+;ido buffer switcher
 (require 'ido)
 (ido-mode t)
 
@@ -120,6 +126,11 @@
 ;(require 'paren)
 ;(show-paren-mode t)
 
+;CUSTOM FACES
+(custom-set-faces
+'(flymake-errline ((((class color)) (:background "tomato" :foreground "white"))))
+'(flymake-warnline ((((class color)) (:background "LightBlue2" :foreground "white"))))
+)
 
 ;Open a shell on load
 (split-window-horizontally)   ;; want two windows at startup
