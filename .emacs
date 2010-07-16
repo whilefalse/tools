@@ -110,10 +110,16 @@
 ;Auto complete
 (require 'auto-complete)
 (setq ac-auto-start nil)
-(global-set-key  "\t" 'ac-start)
+(global-unset-key "\C-\\")
+(global-set-key  "\C-\\" 'ac-start)
+(define-key ac-complete-mode-map "\C-\\" 'ac-stop)
 
 ;Git
 ;(require 'git)
+
+;Haml/Sass mode
+(require 'haml-mode)
+(require 'sass-mode)
 
 ;Hippie expand
 ;(global-set-key "\t" 'hippie-expand)
