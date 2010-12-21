@@ -117,6 +117,10 @@
 ;Git
 ;(require 'git)
 
+;Haml/Sass mode
+(require 'haml-mode)
+(require 'sass-mode)
+
 ;Hippie expand
 ;(global-set-key "\t" 'hippie-expand)
 
@@ -133,10 +137,3 @@
 '(flymake-errline ((((class color)) (:background "tomato" :foreground "white"))))
 '(flymake-warnline ((((class color)) (:background "LightBlue2" :foreground "white"))))
 )
-
-;Open a shell on load
-(split-window-horizontally)   ;; want two windows at startup
-(other-window 1)              ;; move to other window
-(eshell)                       ;; start a shell
-(rename-buffer "*emacs-shell*") ;; rename it
-(other-window 1)              ;; move back to first window
