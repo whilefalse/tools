@@ -98,6 +98,9 @@
 ;PYTHON SHIZZLE
 (require 'init_python)
 
+;CC-mode styling
+(setq c-auto-newline nil)
+
 ;Flymake, python syntax checking - awesome!!!
 ;Needs pyflakes
 (load-library "flymakecustom")
@@ -110,7 +113,6 @@
 ;Auto complete
 (require 'auto-complete)
 (setq ac-auto-start nil)
-(global-set-key  "\t" 'ac-start)
 
 ;Git
 ;(require 'git)
