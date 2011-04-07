@@ -1,4 +1,4 @@
-;FILE TYPES#
+;FILE TYPES
 ;.ctp files for CakePHP
 (add-to-list 'auto-mode-alist '("\\.ctp\\'" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
@@ -44,8 +44,8 @@
 (setq mac-command-modifier 'meta)
 (setq mac-control-modifier 'meta)
 ;Remove trailing whitespace on save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-(add-hook 'before-save-hook (lambda() (untabify (point-min) (point-max)))) ;Getting rid of this as it's messing up my commits
+;(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;(add-hook 'before-save-hook (lambda() (untabify (point-min) (point-max)))) ;Getting rid of this as it's messing up my commits
 
 ;Selection settings
 (setq search-highlight t) ;Highlight during search
@@ -176,3 +176,8 @@
 ;CSS
 (setq css-indent-offset 2)
 (setq cssm-indent-function #'cssm-c-style-indenter)
+
+;Color theme
+;apt-get install emacs-goodies-el
+(require 'color-theme)
+(load-file "~/.emacs.d/plugins/blackboard-theme.el")
