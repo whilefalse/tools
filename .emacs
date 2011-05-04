@@ -44,7 +44,7 @@
 (setq mac-command-modifier 'meta)
 (setq mac-control-modifier 'meta)
 ;Remove trailing whitespace on save
-;(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;(add-hook 'before-save-hook (lambda() (untabify (point-min) (point-max)))) ;Getting rid of this as it's messing up my commits
 
 ;Selection settings
