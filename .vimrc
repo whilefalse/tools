@@ -1,15 +1,15 @@
 set hlsearch
 set incsearch
 set ls=2
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set scrolloff=3
 set ruler
 set novisualbell
 set number
 set title
 set ttyfast
-set autoindent 
+set autoindent
 set expandtab "tabs to spaces
 set hidden
 set wildchar=<Tab>
@@ -17,9 +17,7 @@ set showmatch
 :colorscheme relaxedgreen
 
 set fileencoding=utf8
-filetype plugin on
-filetype indent on
-filetype on
+filetype plugin indent on
 
 set nocompatible
 set backspace=indent,eol,start
@@ -47,3 +45,6 @@ inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
 inoremap {}     {}
+
+set list lcs=tab:·⁖,trail:¶
+autocmd BufWritePre * :%s/\s\+$//e
