@@ -42,3 +42,8 @@ map <tab> v>
 nmap <s-tab> v<
 vmap <tab> >gv
 vmap <s-tab> <gv
+
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
+inoremap {}     {}
