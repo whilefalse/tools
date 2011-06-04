@@ -1,12 +1,16 @@
-;FILE TYPES#
+;FILE TYPES
 ;.ctp files for CakePHP
-(add-to-list 'auto-mode-alist '("\\.ctp\\'" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.ctp\\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 
 ;TAB WIDTH SETTINGS
 (setq-default tab-width 4)
 (setq tab-width 4)
 (setq c-basic-offset 4)
 (setq-default indent-tabs-mode nil)
+(setq-default c-basic-offset 4)
+(setq cssm-indent-level 4)
+(setq nxml-child-indent 4)
 
 ;GENERAL SETTINGS
 ;Dispalys the time in status bar
@@ -16,7 +20,6 @@
 (setq inhibit-splash-screen t)
 ;Always add a newlinw
 (setq require-final-newline t)
-(setq c-auto-newline t)
 ;Show line and column nos
 (line-number-mode t)
 (column-number-mode t)
@@ -44,6 +47,7 @@
 (setq mac-control-modifier 'meta)
 ;Remove trailing whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+;(add-hook 'before-save-hook (lambda() (untabify (point-min) (point-max)))) ;Getting rid of this as it's messing up my commits
 
 ;Selection settings
 (setq search-highlight t) ;Highlight during search
@@ -105,14 +109,14 @@
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 
 ;PYTHON SHIZZLE
-(require 'init_python)
+;(require 'init_python)
 
 ;CC-mode styling
 (setq c-auto-newline nil)
 
 ;Flymake, python syntax checking - awesome!!!
 ;Needs pyflakes
-(load-library "flymakecustom")
+;(load-library "flymakecustom")
 
 ;yasnippet
 (require 'yasnippet)
@@ -129,6 +133,7 @@
 ;Haml/Sass mode
 (require 'haml-mode)
 (require 'sass-mode)
+(require 'scss-mode)
 
 ;Hippie expand
 ;(global-set-key "\t" 'hippie-expand)
@@ -143,14 +148,20 @@
 
 ;CUSTOM FACES
 (custom-set-faces
-'(flymake-errline ((((class color)) (:background "tomato" :foreground "white"))))
-'(flymake-warnline ((((class color)) (:background "LightBlue2" :foreground "white"))))
-)
-;PHP shit
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(flymake-errline ((((class color)) (:background "tomato" :foreground "white"))))
+ '(flymake-warnline ((((class color)) (:background "LightBlue2" :foreground "white")))))
 
+;PHP NICENESS
 (defun clean-php-mode ()
 (interactive)
 (php-mode)
+(setq c-basic-offset 2) ; 2 tabs indenting
+(setq indent-tabs-mode nil)
+(setq fill-column 78)
 (c-set-offset 'case-label '+)
 (c-set-offset 'arglist-close 'c-lineup-arglist-operators))
 (c-set-offset 'arglist-intro '+) ; for FAPI arrays and DBTNG
@@ -166,6 +177,16 @@
 (local-set-key [f8] 'phplint-thisfile)))
 ;; end of php lint
 
-;JS
-(autoload 'javascript-mode "javascript" nil t)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
+;JS mode
+(autoload #'espresso-mode "espresso" "Start espresso-mode" t)
+(add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . espresso-mode))
+
+;CSS
+(setq css-indent-offset 2)
+(setq cssm-indent-function #'cssm-c-style-indenter)
+
+;Color theme
+;apt-get install emacs-goodies-el
+(require 'color-theme)
+(load-file "~/.emacs.d/plugins/blackboard-theme.el")

@@ -1,0 +1,1 @@
+wget -q -O - "https://www.random.org/passwords/?num=1&len=12&format=plain&rnd=new"
