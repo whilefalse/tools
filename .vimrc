@@ -14,12 +14,13 @@ set expandtab "tabs to spaces
 set hidden
 set wildchar=<Tab>
 set showmatch
-:colorscheme relaxedgreen
+syntax on
+set background=dark
+:colorscheme vividchalk
 
 set fileencoding=utf8
-filetype plugin indent on
-
 set nocompatible
+filetype plugin indent on
 set backspace=indent,eol,start
 
 "disable arrows
