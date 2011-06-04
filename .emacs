@@ -4,6 +4,8 @@
 
 ;TAB WIDTH SETTINGS
 (setq-default tab-width 4)
+(setq tab-width 4)
+(setq c-basic-offset 4)
 (setq-default indent-tabs-mode nil)
 
 ;GENERAL SETTINGS
@@ -95,6 +97,13 @@
 (progn (cd "~/.emacs.d/plugins")
        (normal-top-level-add-subdirs-to-load-path))
 
+;SCSS
+(setq scss-sass-command "/home/steven/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/gems/1.9/gems/haml-3.0.25/bin/sass")
+(setq scss-compile-at-save nil)
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins"))
+(autoload 'scss-mode "scss-mode")
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+
 ;PYTHON SHIZZLE
 (require 'init_python)
 
@@ -137,3 +146,26 @@
 '(flymake-errline ((((class color)) (:background "tomato" :foreground "white"))))
 '(flymake-warnline ((((class color)) (:background "LightBlue2" :foreground "white"))))
 )
+;PHP shit
+
+(defun clean-php-mode ()
+(interactive)
+(php-mode)
+(c-set-offset 'case-label '+)
+(c-set-offset 'arglist-close 'c-lineup-arglist-operators))
+(c-set-offset 'arglist-intro '+) ; for FAPI arrays and DBTNG
+(c-set-offset 'arglist-cont-nonempty 'c-lineup-math) ; for DBTNG fields and values
+
+;; run php lint when press f8 key
+;; php lint
+(defun phplint-thisfile ()
+(interactive)
+(compile (format "php -l %s" (buffer-file-name))))
+(add-hook 'php-mode-hook
+'(lambda ()
+(local-set-key [f8] 'phplint-thisfile)))
+;; end of php lint
+
+;JS
+(autoload 'javascript-mode "javascript" nil t)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
