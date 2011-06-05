@@ -37,15 +37,17 @@ noremap <PageDown> <NOP>
 
 
 "make tab key more better
-map <tab> v>
-nmap <s-tab> v<
-vmap <tab> >gv
-vmap <s-tab> <gv
+"nmap <tab> v>
+"nmap <s-tab> v<
+"vmap <tab> >gv
+"vmap <s-tab> <gv
 
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
+"Auto add closing } when one is opened
+"inoremap {      {}<Left>
+"inoremap {<CR>  {<CR>}<Esc>O
+"inoremap {{     {
+"inoremap {}     {}
 
+"Tabs and traling space highlighting and sorting out - :retab sorts out tabs
 set list lcs=tab:·⁖,trail:¶
 autocmd BufWritePre * :%s/\s\+$//e
