@@ -16,6 +16,7 @@ set wildchar=<Tab>
 set showmatch
 syntax on
 set background=dark
+let mapleader = ","
 :colorscheme vividchalk
 
 set fileencoding=utf8
