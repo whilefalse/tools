@@ -48,3 +48,5 @@ inoremap {}     {}
 
 set list lcs=tab:·⁖,trail:¶
 autocmd BufWritePre * :%s/\s\+$//e
+
+command! -complete=file -nargs=* Git call s:RunShellCommand('git '.<q-args>)
