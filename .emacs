@@ -4,7 +4,9 @@
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 
 ;TAB WIDTH SETTINGS
-(setq default-tab-width 4)
+(setq-default tab-width 4)
+(setq tab-width 4)
+(setq c-basic-offset 4)
 (setq-default indent-tabs-mode nil)
 (setq-default c-basic-offset 4)
 (setq cssm-indent-level 4)
@@ -99,8 +101,18 @@
 (progn (cd "~/.emacs.d/plugins")
        (normal-top-level-add-subdirs-to-load-path))
 
+;SCSS
+(setq scss-sass-command "/home/steven/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/gems/1.9/gems/haml-3.0.25/bin/sass")
+(setq scss-compile-at-save nil)
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins"))
+(autoload 'scss-mode "scss-mode")
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+
 ;PYTHON SHIZZLE
 ;(require 'init_python)
+
+;CC-mode styling
+(setq c-auto-newline nil)
 
 ;Flymake, python syntax checking - awesome!!!
 ;Needs pyflakes
@@ -114,9 +126,6 @@
 ;Auto complete
 (require 'auto-complete)
 (setq ac-auto-start nil)
-(global-unset-key "\C-\\")
-(global-set-key  "\C-\\" 'ac-start)
-(define-key ac-complete-mode-map "\C-\\" 'ac-stop)
 
 ;Git
 ;(require 'git)

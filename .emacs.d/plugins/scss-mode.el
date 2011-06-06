@@ -1,7 +1,7 @@
 ;;; scss-mode.el --- Major mode for editing SCSS files
 ;;
 ;; Author: Anton Johansson <anton.johansson@gmail.com> - http://antonj.se
-;; URL: http://github.com/blastura/dot-emacs/blob/master/lisp-personal/scss-mode.el
+;; URL: https://github.com/antonj/scss-mode
 ;; Created: Sep 1 23:11:26 2010
 ;; Keywords: scss css mode
 ;;
@@ -13,7 +13,7 @@
 ;; This program is distributed in the hope that it will be
 ;; useful, but WITHOUT ANY WARRANTY; without even the implied
 ;; warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-;; PURPOSE. See the GNU General Public License for more details.
+;; PURPOSE.  See the GNU General Public License for more details.
 ;;
 ;;; Commentary:
 ;;
@@ -37,8 +37,8 @@
 
 (defcustom scss-sass-command "sass"
   "Command used to compile SCSS files, should be sass or the
-complete path to your sass runnable example:
-\"~/.gem/ruby/1.8/bin/sass\""
+  complete path to your sass runnable example:
+  \"~/.gem/ruby/1.8/bin/sass\""
   :group 'scss)
 
 (defcustom scss-compile-at-save t
@@ -58,9 +58,21 @@ HYPERLINK HIGHLIGHT)"
   '(("\$[^\s:;]+" . font-lock-constant-face)
     ("//.*$" . font-lock-comment-face)))
 
+(defun scss-compile-maybe()
+  "Runs `scss-compile' on if `scss-compile-at-save' is t"
+  (if scss-compile-at-save
+      (scss-compile)))
+
+(defun scss-compile()
+  "Compiles the current buffer, sass filename.scss filename.css"
+  (interactive)
+    (compile (concat scss-sass-command " " ;; " --no-cache " " --cache-location"
+          buffer-file-name " "
+          (first (split-string buffer-file-name ".scss")) ".css")))
+
 ;;;###autoload
-(define-derived-mode scss-mode css-mode "Scss"
-  "Major mode for editing Scss files, http://sass-lang.com/
+(define-derived-mode scss-mode css-mode "SCSS"
+  "Major mode for editing SCSS files, http://sass-lang.com/
 Special commands:
 \\{scss-mode-map}"
   (font-lock-add-keywords nil scss-font-lock-keywords)
@@ -68,6 +80,21 @@ Special commands:
   (add-hook 'after-save-hook 'scss-compile-maybe nil t))
 
 (define-key scss-mode-map "\C-c\C-c" 'scss-compile)
+
+(defun flymake-scss-init ()
+  "Flymake support for SCSS files"
+  (let* ((temp-file   (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+         (local-file  (file-relative-name
+                       temp-file
+                       (file-name-directory buffer-file-name))))
+    (list scss-sass-command (list "--scss" "--check" local-file))))
+
+(push '(".+\\.scss$" flymake-scss-init) flymake-allowed-file-name-masks)
+
+;;;; TODO: Not possible to use multiline regexs flymake? flymake-err-[line]-patterns
+;; '("Syntax error:\s*\\(.*\\)\n\s*on line\s*\\([0-9]+\\) of \\([^ ]+\\)$" 3 2 nil 1)
+(push '("on line \\([0-9]+\\) of \\([^ ]+\\)$" 2 1 nil 2) flymake-err-line-patterns)
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))

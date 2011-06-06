@@ -14,12 +14,14 @@ set expandtab "tabs to spaces
 set hidden
 set wildchar=<Tab>
 set showmatch
-:colorscheme relaxedgreen
+syntax on
+set background=dark
+let mapleader = ","
+:colorscheme vividchalk
 
 set fileencoding=utf8
-filetype plugin indent on
-
 set nocompatible
+filetype plugin indent on
 set backspace=indent,eol,start
 
 "disable arrows
@@ -36,16 +38,18 @@ noremap <PageDown> <NOP>
 
 
 "make tab key more better
-map <tab> v>
-nmap <s-tab> v<
-vmap <tab> >gv
-vmap <s-tab> <gv
+"nmap <tab> v>
+"nmap <s-tab> v<
+"vmap <tab> >gv
+"vmap <s-tab> <gv
 
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
+"Auto add closing } when one is opened
+"inoremap {      {}<Left>
+"inoremap {<CR>  {<CR>}<Esc>O
+"inoremap {{     {
+"inoremap {}     {}
 
+"Tabs and traling space highlighting and sorting out - :retab sorts out tabs
 set list lcs=tab:·⁖,trail:¶
 autocmd BufWritePre * :%s/\s\+$//e
 
