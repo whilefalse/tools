@@ -18,6 +18,8 @@ syntax on
 set background=dark
 let mapleader = ","
 :colorscheme vividchalk
+set backupdir=~/.vim/tmp
+set directory=~/.vim/tmp
 
 set fileencoding=utf8
 set nocompatible
@@ -54,3 +56,4 @@ set list lcs=tab:·⁖,trail:¶
 autocmd BufWritePre * :%s/\s\+$//e
 
 command! -complete=file -nargs=* Git call s:RunShellCommand('git '.<q-args>)
+au BufNewFile,BufRead *.ctp set filetype=html
