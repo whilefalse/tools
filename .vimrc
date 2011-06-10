@@ -7,6 +7,7 @@ set tabstop=2             "Tabs are 2 spaces in width
 set shiftwidth=2          "Autodindent to 2 spaces width
 set scrolloff=999         "cursor is always in middle of screen
 set ruler                 "Shows current file position
+set statusline=%<%f\ %h%m%y%r%=%-14.(%l,%c%V%)\ %P
 set cursorcolumn          "Highlight current column
 set cursorline            "Highlight current row
 set novisualbell          "Don't shake the screen
