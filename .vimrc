@@ -19,6 +19,8 @@ set wildchar=<Tab>        "Tab expands wildcards
 set fileencoding=utf8     "Unicode man
 set nocompatible          "Get all of vim's awesomeness
 set backspace=indent,eol,start "Allow backspacing over tabs end of lines and start of insert
+set wildmode=longest,list "Better tab completion of filenames (like bash)
+set wildmenu              "as above
 
 syntax on                 "syntax highlighting
 set background=dark       "Tell vim I'm using a dark background
