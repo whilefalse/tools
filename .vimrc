@@ -36,6 +36,8 @@ hi IndentGuidesOdd ctermbg=white
 let mapleader = ","       "Leader from \ to , - means stuff like Command-T plugin becomes ,+t rather than \+t
 set backupdir=~/.vim/tmp  "Store backups in same dir
 set directory=~/.vim/tmp  "Store swps in same dir
+let g:CommandTMaxHeight=10
+
 
 filetype plugin indent on "Detect filetype indentations
 "Custom filetypes
@@ -72,3 +74,6 @@ noremap <PageDown> <NOP>
 "Pathogen
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+
+"Emacs indenting
+map <Tab> ==
