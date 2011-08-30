@@ -42,22 +42,23 @@ let g:CommandTMaxHeight=10
 filetype plugin indent on "Detect filetype indentations
 "Custom filetypes
 au BufNewFile,BufRead *.ctp set filetype=html
+au BufNewFile,BufRead *.ui set filetype=ruby
 
 "Tabs and traling space highlighting and sorting out - :retab sorts out tabs
 set list lcs=tab:·⁖,trail:¶
 "autocmd BufWritePre * :%s/\s\+$//e
 
 "disable arrows
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-noremap <PageUP> <NOP>
-noremap <PageDown> <NOP>
+" inoremap <Up> <NOP>
+" inoremap <Down> <NOP>
+" inoremap <Left> <NOP>
+" inoremap <Right> <NOP>
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
+" noremap <PageUP> <NOP>
+" noremap <PageDown> <NOP>
 
 "make tab key more better
 "nmap <tab> v>
@@ -77,3 +78,32 @@ call pathogen#runtime_append_all_bundles()
 
 "Emacs indenting
 map <Tab> ==
+
+"Open nerdtree on open
+au VimEnter * NERDTree
+au VimEnter * wincmd w
+
+function! NERDTreeQuit()
+  redir => buffersoutput
+  silent buffers
+  redir END
+"  1BufNo  2Mods.     3File           4LineNo
+  let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
+  let windowfound = 0
+
+  for bline in split(buffersoutput, "\n")
+    let m = matchlist(bline, pattern)
+
+    if (len(m) > 0)
+      if (m[2] =~ '..a..')
+        let windowfound = 1
+      endif
+    endif
+  endfor
+
+  if (!windowfound)
+    quitall
+  endif
+endfunction
+
+autocmd WinEnter * call NERDTreeQuit()
