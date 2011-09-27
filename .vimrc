@@ -107,3 +107,6 @@ function! NERDTreeQuit()
 endfunction
 
 autocmd WinEnter * call NERDTreeQuit()
+
+:command! -range=% Snip '<,'>w! /tmp/snippet
+:command! Unsnip r /tmp/snippet
