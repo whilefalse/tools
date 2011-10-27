@@ -407,6 +407,11 @@ tcomment#OperatorLine()	tcomment.txt	/*tcomment#OperatorLine()*
 tcomment#OperatorLineAnyway()	tcomment.txt	/*tcomment#OperatorLineAnyway()*
 tcomment-maps	tcomment.txt	/*tcomment-maps*
 tcomment.txt	tcomment.txt	/*tcomment.txt*
+textile-changelog	textile.txt	/*textile-changelog*
+textile-commands	textile.txt	/*textile-commands*
+textile-credits	textile.txt	/*textile-credits*
+textile-requirements	textile.txt	/*textile-requirements*
+textile.txt	textile.txt	/*textile.txt*
 treeExplDirSort	vtreeexplorer.txt	/*treeExplDirSort*
 treeExplHidden	vtreeexplorer.txt	/*treeExplHidden*
 treeExplHidePattern	vtreeexplorer.txt	/*treeExplHidePattern*

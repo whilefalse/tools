@@ -1,8 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/steve/git/Freestyle/app/models'
-let g:netrw_dirhist_2='/home/steve/.vim'
-let g:netrw_dirhist_3='/home/steve/git/sop/sop_authentication/lib/sop_authentication'
-let g:netrw_dirhist_4='/home/steve/git/sop/sop_ui_components'
-let g:netrw_dirhist_5='/home/steve/git/sop/sop_core'
-let g:netrw_dirhist_6='/home/steve/git/sop/sop_ui_components/lib/sop_ui'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/tmp/testengine/lib/testengine'
+let g:netrw_dirhist_2='/home/steve/git/sop/ci'
+let g:netrw_dirhist_3='/home/steve/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/shoulda-matchers-1.0.0.beta3'
+let g:netrw_dirhist_4='/home/steve/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/pdoc-0.2.0'
