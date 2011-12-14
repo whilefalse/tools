@@ -25,13 +25,13 @@ set wildmenu              "as above
 cmap %/ %:p:h/
 
 syntax on                 "syntax highlighting
-:colorscheme vividchalk   "This is recommended by rails.vim
+colorscheme vividchalk       "This is recommended by rails.vim
 set background=dark       "Tell vim I'm using a dark background
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 1
 hi IndentGuidesEven ctermbg=black
-hi IndentGuidesOdd ctermbg=white
+hi IndentGuidesOdd ctermbg=grey
 
 let mapleader = ","       "Leader from \ to , - means stuff like Command-T plugin becomes ,+t rather than \+t
 set backupdir=~/.vim/tmp  "Store backups in same dir
@@ -43,6 +43,7 @@ filetype plugin indent on "Detect filetype indentations
 "Custom filetypes
 au BufNewFile,BufRead *.ctp set filetype=html
 au BufNewFile,BufRead *.ui set filetype=ruby
+au BufNewFile,BufRead Fudgefile set filetype=ruby
 
 "Tabs and traling space highlighting and sorting out - :retab sorts out tabs
 set list lcs=tab:·⁖,trail:¶
@@ -79,34 +80,47 @@ call pathogen#runtime_append_all_bundles()
 "Emacs indenting
 map <Tab> ==
 
+"Easy file switching
+nnoremap <leader>. <c-^>
+
+"Ctrl-P fuzzy matching
+let g:ctrlp_map = '<leader><leader>'
+let g:ctrlp_working_path_mode = 0
+
 "Open nerdtree on open
-au VimEnter * NERDTree
-au VimEnter * wincmd w
+" au VimEnter * NERDTree
+" au VimEnter * wincmd w
 
-function! NERDTreeQuit()
-  redir => buffersoutput
-  silent buffers
-  redir END
-"  1BufNo  2Mods.     3File           4LineNo
-  let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
-  let windowfound = 0
-
-  for bline in split(buffersoutput, "\n")
-    let m = matchlist(bline, pattern)
-
-    if (len(m) > 0)
-      if (m[2] =~ '..a..')
-        let windowfound = 1
-      endif
-    endif
-  endfor
-
-  if (!windowfound)
-    quitall
-  endif
-endfunction
-
-autocmd WinEnter * call NERDTreeQuit()
+" This seemed like a good idea at the time but actually sucks
+"
+" function! NERDTreeQuit()
+"   redir => buffersoutput
+"   silent buffers
+"   redir END
+" "  1BufNo  2Mods.     3File           4LineNo
+"   let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
+"   let windowfound = 0
+" 
+"   for bline in split(buffersoutput, "\n")
+"     let m = matchlist(bline, pattern)
+" 
+"     if (len(m) > 0)
+"       if (m[2] =~ '..a..')
+"         let windowfound = 1
+"       endif
+"     endif
+"   endfor
+" 
+"   if (!windowfound)
+"     quitall
+"   endif
+" endfunction
+" 
+" autocmd WinEnter * call NERDTreeQuit()
 
 :command! -range=% Snip '<,'>w! /tmp/snippet
 :command! Unsnip r /tmp/snippet
+
+
+highlight clear CursorLine
+highlight CursorLine ctermbg=blue
