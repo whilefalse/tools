@@ -24,9 +24,22 @@ set wildmenu              "as above
 "Allows use of %/ for current directory
 cmap %/ %:p:h/
 
-syntax on                 "syntax highlighting
-colorscheme vividchalk       "This is recommended by rails.vim
+"256 coloras
+if $COLORTERM == 'gnome-terminal'
+  set term=gnome-256color
+endif
 set background=dark       "Tell vim I'm using a dark background
+colorscheme vividchalk
+syntax on                 "syntax highlighting
+
+"custom colors
+hi CursorLine ctermbg=234 term=none cterm=none
+hi clear CursorColumn
+hi CursorColumn ctermbg=234
+hi LineNr ctermfg=237 ctermbg=233
+hi Visual term=bold cterm=italic
+
+"indent guides
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 1
@@ -36,8 +49,6 @@ hi IndentGuidesOdd ctermbg=grey
 let mapleader = ","       "Leader from \ to , - means stuff like Command-T plugin becomes ,+t rather than \+t
 set backupdir=~/.vim/tmp  "Store backups in same dir
 set directory=~/.vim/tmp  "Store swps in same dir
-let g:CommandTMaxHeight=10
-
 
 filetype plugin indent on "Detect filetype indentations
 "Custom filetypes
@@ -49,78 +60,21 @@ au BufNewFile,BufRead Fudgefile set filetype=ruby
 set list lcs=tab:·⁖,trail:¶
 "autocmd BufWritePre * :%s/\s\+$//e
 
-"disable arrows
-" inoremap <Up> <NOP>
-" inoremap <Down> <NOP>
-" inoremap <Left> <NOP>
-" inoremap <Right> <NOP>
-" noremap <Up> <NOP>
-" noremap <Down> <NOP>
-" noremap <Left> <NOP>
-" noremap <Right> <NOP>
-" noremap <PageUP> <NOP>
-" noremap <PageDown> <NOP>
-
-"make tab key more better
-"nmap <tab> v>
-"nmap <s-tab> v<
-"vmap <tab> >gv
-"vmap <s-tab> <gv
-
-"Auto add closing } when one is opened
-"inoremap {      {}<Left>
-"inoremap {<CR>  {<CR>}<Esc>O
-"inoremap {{     {
-"inoremap {}     {}
-
-"Pathogen
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-
 "Emacs indenting
 map <Tab> ==
 
+"NERDTree toggle
+map <c-T> :NERDTreeToggle<CR>
+
 "Easy file switching
-nnoremap <leader>. <c-^>
+nnoremap <leader>. <C-^>
 
 "Ctrl-P fuzzy matching
 let g:ctrlp_map = '<leader><leader>'
 let g:ctrlp_working_path_mode = 0
 
-"Open nerdtree on open
-" au VimEnter * NERDTree
-" au VimEnter * wincmd w
-
-" This seemed like a good idea at the time but actually sucks
-"
-" function! NERDTreeQuit()
-"   redir => buffersoutput
-"   silent buffers
-"   redir END
-" "  1BufNo  2Mods.     3File           4LineNo
-"   let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
-"   let windowfound = 0
-" 
-"   for bline in split(buffersoutput, "\n")
-"     let m = matchlist(bline, pattern)
-" 
-"     if (len(m) > 0)
-"       if (m[2] =~ '..a..')
-"         let windowfound = 1
-"       endif
-"     endif
-"   endfor
-" 
-"   if (!windowfound)
-"     quitall
-"   endif
-" endfunction
-" 
-" autocmd WinEnter * call NERDTreeQuit()
-
 :command! -range=% Snip '<,'>w! /tmp/snippet
 :command! Unsnip r /tmp/snippet
 
-
-highlight clear CursorLine
-highlight CursorLine ctermbg=blue
+:command! Q qa!
+:command! WQ wqa!
