@@ -26,7 +26,7 @@ cmap %/ %:p:h/
 
 "256 coloras
 if $COLORTERM == 'gnome-terminal'
-  set term=gnome-256color
+  set t_Co=256
 endif
 set background=dark       "Tell vim I'm using a dark background
 colorscheme vividchalk
