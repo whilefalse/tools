@@ -1,8 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/steve/git/Freestyle/app/models'
 let g:netrw_dirhist_2='/home/steve/.vim'
 let g:netrw_dirhist_3='/home/steve/git/sop/sop_authentication/lib/sop_authentication'
 let g:netrw_dirhist_4='/home/steve/git/sop/sop_ui_components'
 let g:netrw_dirhist_5='/home/steve/git/sop/sop_core'
 let g:netrw_dirhist_6='/home/steve/git/sop/sop_ui_components/lib/sop_ui'
+let g:netrw_dirhist_7='/home/steven/.linuxmint/mintMenu/applications'
