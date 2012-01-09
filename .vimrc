@@ -78,3 +78,6 @@ let g:ctrlp_working_path_mode = 0
 
 :command! Q qa!
 :command! WQ wqa!
+
+" Get yankring out of the way
+let g:yankring_history_dir = '~/.vim/tmp'
