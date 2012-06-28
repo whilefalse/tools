@@ -25,9 +25,7 @@ set wildmenu              "as above
 cmap %/ %:p:h/
 
 "256 coloras
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
+set t_Co=256
 set background=dark       "Tell vim I'm using a dark background
 colorscheme vividchalk
 syntax on                 "syntax highlighting
@@ -58,16 +56,19 @@ au BufNewFile,BufRead Fudgefile set filetype=ruby
 
 "Tabs and traling space highlighting and sorting out - :retab sorts out tabs
 set list lcs=tab:·⁖,trail:¶
-"autocmd BufWritePre * :%s/\s\+$//e
 
 "Emacs indenting
 map <Tab> ==
 
 "NERDTree toggle
 map <c-T> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize = 30
 
 "Easy file switching
 nnoremap <leader>. <C-^>
+
+"Two columns
+:noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
 "Ctrl-P fuzzy matching
 let g:ctrlp_map = '<leader><leader>'
@@ -79,5 +80,11 @@ let g:ctrlp_working_path_mode = 0
 :command! Q qa!
 :command! WQ wqa!
 
+"autocmd BufWritePre * :%s/\s\+$//e
+
 " Get yankring out of the way
 let g:yankring_history_dir = '~/.vim/tmp'
+
+set tags+=gems.tags
+
+set colorcolumn=80
