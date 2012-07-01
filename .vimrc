@@ -81,3 +81,13 @@ let g:ctrlp_working_path_mode = 0
 
 " Get yankring out of the way
 let g:yankring_history_dir = '~/.vim/tmp'
+
+" disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
