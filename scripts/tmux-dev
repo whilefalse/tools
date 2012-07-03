@@ -1,0 +1,22 @@
+#!/bin/bash
+if [ -z $1 ]
+then
+  session=dev
+else
+  session=$1
+fi
+
+tmux -2 new-session -d -s $session 'vim'
+tmux -2 rename-window 'Dev'
+
+tmux -2 select-window -t $session:0
+tmux -2 split-window -h -t $session
+tmux -2 split-window -v -t $session
+
+tmux -2 new-window -t $session:1 -n 'Server'
+
+tmux -2 select-window -t $session:0
+tmux -2 select-pane -t $session -L
+tmux -2 send-keys -t $session :NERDTree C-m
+
+tmux -2 attach-session -t $session
