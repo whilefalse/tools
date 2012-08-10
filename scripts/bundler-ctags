@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'bundler'
+require 'bundler/runtime'
+
+puts 'Building gems.tags from bundle'
+outpath = 'gems.tags'
+begin
+  runtime = ::Bundler::Runtime.new Dir.pwd, ::Bundler.definition
+  paths = runtime.specs.map(&:full_gem_path).join(' ').strip
+  system("find #{paths} -type f -name \\*.rb | ctags -f gems.tags -L -")
+rescue
+  puts 'Unable to build, is there a Gemfile?'
+end

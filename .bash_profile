@@ -22,5 +22,8 @@ PS1="\\[\033[m\]\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 PS1='\[\033[m\]\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;31m\] ☭\[\033[00m\] '
+export PATH="$HOME/.rbenv/bin:$HOME/scripts:/usr/local/bin:$HOME/.cabal/bin:$PATH"
 export EDITOR=vim
 eval "$(rbenv init -)"
+export http_proxy=http://lon1.sme.zscaler.net:9480
+export CDPATH=$CDPATH:$HOME/Dev

@@ -1,3 +1,5 @@
+call pathogen#infect()
+
 set hlsearch              "Highlight searches
 set incsearch             "Incremental search
 set ls=2                  "Always show status line in all windows
