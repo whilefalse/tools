@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/scss"]
 	path = .vim/bundle/scss
 	url = https://github.com/cakebaker/scss-syntax.vim.git
+[submodule ".vim/bundle/cucumber"]
+	path = .vim/bundle/cucumber
+	url = https://github.com/tpope/vim-cucumber.git
