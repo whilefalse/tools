@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/nyancat"]
 	path = .vim/bundle/nyancat
 	url = https://github.com/koron/nyancat-vim.git
+[submodule ".vim/bundle/rails.vim"]
+	path = .vim/bundle/rails.vim
+	url = https://github.com/tpope/vim-rails.git
