@@ -77,9 +77,11 @@ nnoremap <leader>. <C-^>
 let g:ctrlp_map = '<leader><leader>'
 let g:ctrlp_working_path_mode = 0
 
+"Copy and paste across vim sessions
 :command! -range=% Snip '<,'>w! /tmp/snippet
 :command! Unsnip r /tmp/snippet
 
+"Shortcuts for qa! and wqa!
 :command! Q qa!
 :command! WQ wqa!
 
@@ -90,14 +92,14 @@ let g:yankring_history_dir = '~/.vim/tmp'
 
 " disable arrow keys
 " Juan made me comment these out.
-" map <up> <nop>
-" map <down> <nop>
-" map <left> <nop>
-" map <right> <nop>
-" imap <up> <nop>
-" imap <down> <nop>
-" imap <left> <nop>
-" imap <right> <nop>
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 set tags+=gems.tags
 
 set colorcolumn=80
