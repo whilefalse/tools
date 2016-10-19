@@ -4,5 +4,7 @@
 [alias]
 	s = status
 	d = diff --ignore-space-change -M
-	t = "log --all --color --graph --abbrev-commit --pretty=format:'%C(auto)%h -%C(auto)%d %s %C(green)(%cr) %C(cyan)%an'"
+	t = "log --all --color --graph --abbrev-commit --pretty=format:'%C(auto)%h -%C(auto)%d %s %C(green)(%ci) %C(cyan)%an'"
 	ff = merge --ff-only
+[rebase]
+	autosquash = true
