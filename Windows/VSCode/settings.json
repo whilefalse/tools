@@ -33,4 +33,11 @@
         "<C-a>": false,  //select all
         "<C-k>": false, //VSCode leader
     },
+
+    // Search
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/bin": true,
+        "**/obj": true
+    }
 }
