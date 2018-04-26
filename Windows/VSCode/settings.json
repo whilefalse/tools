@@ -2,9 +2,7 @@
     // Workbench
     "workbench.startupEditor": "newUntitledFile",
     "workbench.statusBar.feedback.visible": false,
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#333333"
-    },
+    "workbench.colorTheme": "Dracula",
 
     // Editor
     "editor.quickSuggestions": {
@@ -22,5 +20,17 @@
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
 
     // TS Lint
-    "tslint.alwaysShowRuleFailuresAsWarnings": true ,
+    "tslint.alwaysShowRuleFailuresAsWarnings": true,
+
+    // Vim
+    "vim.useSystemClipboard": true,
+    "vim.handleKeys": {
+        "<C-c>": false, //copy
+        "<C-x>": false, //cut
+        "<C-v>": false, //past
+        "<C-f>": false, //find
+        "<C-t>": false, //show symbols
+        "<C-a>": false,  //select all
+        "<C-k>": false, //VSCode leader
+    },
 }
