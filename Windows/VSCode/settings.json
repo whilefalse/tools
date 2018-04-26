@@ -19,6 +19,9 @@
     // Terminal
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
 
+    // Files
+    "files.insertFinalNewline": true,
+
     // TS Lint
     "tslint.alwaysShowRuleFailuresAsWarnings": true,
 
