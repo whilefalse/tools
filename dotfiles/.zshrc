@@ -8,7 +8,7 @@ export ZSH="/Users/steve/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,7 +68,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  vi-mode
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,3 +100,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Custom prompt
+PROMPT='%F{yellow}%n%{$reset_color%}@%F{green}%m: %F{cyan}%~$(git_prompt_info)'$'\n''%F{red}λ %{$reset_color%}'
+ZSH_THEME_GIT_PROMPT_PREFIX=" %F{58}("
+
+# vi-mode interprets delete key code as "capitalise 3 letters"
+# This fixes that
+bindkey "^[[3~" delete-char
+bindkey -a "^[[3~" delete-char
+
+# Personal aliases
+alias gs="git status"
