@@ -73,6 +73,7 @@ plugins=(
   gitfast   # Git PS1 prompt provided by actual git repo. Faster and has info like MERGING, REBASING
   vi-mode   # Allow editing lines with vi keys (Esc to enter vi normal mode)
   mix       # Completion for mix command
+  osx       # Control various OSX commands from terminal
 )
 
 source $ZSH/oh-my-zsh.sh
