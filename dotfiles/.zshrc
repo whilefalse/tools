@@ -69,8 +69,9 @@ ZSH_THEME=""
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  vi-mode
+  git       # Git aliases
+  gitfast   # Git PS1 prompt provided by actual git repo. Faster and has info like MERGING, REBASING
+  vi-mode   # Allow editing lines with vi keys (Esc to enter vi normal mode)
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -102,8 +103,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Custom prompt
-PROMPT='%F{yellow}%n%{$reset_color%}@%F{green}%m: %F{cyan}%~$(git_prompt_info)'$'\n''%F{red}λ %{$reset_color%}'
-ZSH_THEME_GIT_PROMPT_PREFIX=" %F{58}("
+PROMPT='%F{yellow}%n%{$reset_color%}@%F{green}%m: %F{cyan}%~%F{yellow}$(__git_ps1)'$'\n''%F{red}λ %{$reset_color%}'
+GIT_PS1_SHOWDIRTYSTATE=1
+EDITOR=vim
 
 # vi-mode interprets delete key code as "capitalise 3 letters"
 # This fixes that
