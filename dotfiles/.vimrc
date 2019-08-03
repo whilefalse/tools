@@ -45,10 +45,6 @@ set backupdir=~/.vim/tmp  "Store backups in same dir
 set directory=~/.vim/tmp  "Store swps in same dir
 
 filetype plugin indent on "Detect filetype indentations
-"Custom filetypes
-au BufNewFile,BufRead *.ctp set filetype=html
-au BufNewFile,BufRead *.ui set filetype=ruby
-au BufNewFile,BufRead Fudgefile set filetype=ruby
 
 "Tabs and traling space highlighting and sorting out - :retab sorts out tabs
 set list lcs=tab:·⁖,trail:¶
@@ -63,7 +59,8 @@ let g:NERDTreeWinSize = 30
 "Easy file switching
 nnoremap <leader>. <C-^>
 
-"Two columns
+"Two columns of same file, with second column continuing the first
+"Like a newspaper article or something.
 :noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
 "Ctrl-P fuzzy matching
@@ -82,17 +79,5 @@ let g:ctrlp_working_path_mode = 0
 
 " Get yankring out of the way
 let g:yankring_history_dir = '~/.vim/tmp'
-
-" disable arrow keys
-" Juan made me comment these out.
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-set tags+=gems.tags
 
 set colorcolumn=80
