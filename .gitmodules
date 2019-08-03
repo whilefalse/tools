@@ -55,3 +55,6 @@
 [submodule ".vim/bundle/vim-mix-format"]
 	path = dotfiles/.vim/bundle/vim-mix-format
 	url = git@github.com:mhinz/vim-mix-format.git
+[submodule "dotfiles/.vim/bundle/vim-colors-solarized"]
+	path = dotfiles/.vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git

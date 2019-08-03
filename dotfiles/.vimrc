@@ -30,15 +30,8 @@ cmap %/ %:p:h/
 "256 coloras
 set t_Co=256
 set background=dark       "Tell vim I'm using a dark background
-colorscheme vividchalk
+colorscheme solarized
 syntax on                 "syntax highlighting
-
-"custom colors
-hi CursorLine ctermbg=234 term=none cterm=none
-hi clear CursorColumn
-hi CursorColumn ctermbg=234
-hi LineNr ctermfg=237 ctermbg=233
-hi Visual term=bold cterm=italic
 
 "indent guides
 let g:indent_guides_auto_colors = 0
