@@ -110,9 +110,23 @@ GIT_PS1_SHOWDIRTYSTATE=1
 EDITOR=vim
 
 # vi-mode interprets delete key code as "capitalise 3 letters"
-# This fixes that
-bindkey "^[[3~" delete-char
-bindkey -a "^[[3~" delete-char
+# This fixes that. See https://github.com/robbyrussell/oh-my-zsh/pull/7978
+# allow delete, home and end keys to work in normal mode
+# [Home] - Go to beginning of line
+if [[ "${terminfo[khome]}" != "" ]]; then
+  bindkey -M vicmd "${terminfo[khome]}" beginning-of-line
+  bindkey "${terminfo[khome]}" beginning-of-line
+fi
+# [End] - Go to end of line
+if [[ "${terminfo[kend]}" != "" ]]; then
+  bindkey -M vicmd "${terminfo[kend]}"  end-of-line
+  bindkey "${terminfo[kend]}"  end-of-line
+fi
+# [Delete] - delete forward
+if [[ "${terminfo[kdch1]}" != "" ]]; then
+  bindkey -M vicmd "${terminfo[kdch1]}" delete-char
+  bindkey "${terminfo[kdch1]}" delete-char
+fi
 
 # Personal aliases
 alias gs="git status"
