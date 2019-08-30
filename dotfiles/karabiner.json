@@ -31,26 +31,18 @@
                     "simple_modifications": [
                         {
                             "from": {
-                                "key_code": "left_alt"
+                                "key_code": "grave_accent_and_tilde"
                             },
                             "to": {
-                                "key_code": "left_gui"
+                                "key_code": "non_us_backslash"
                             }
                         },
                         {
                             "from": {
-                                "key_code": "left_gui"
+                                "key_code": "non_us_backslash"
                             },
                             "to": {
-                                "key_code": "left_alt"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "right_alt"
-                            },
-                            "to": {
-                                "key_code": "right_gui"
+                                "key_code": "grave_accent_and_tilde"
                             }
                         },
                         {
@@ -59,22 +51,6 @@
                             },
                             "to": {
                                 "key_code": "fn"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "non_us_backslash"
-                            },
-                            "to": {
-                                "key_code": "grave_accent_and_tilde"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "grave_accent_and_tilde"
-                            },
-                            "to": {
-                                "key_code": "non_us_backslash"
                             }
                         }
                     ]
