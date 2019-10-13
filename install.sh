@@ -28,3 +28,7 @@ fi
 cmd+=" `pwd`/config/karabiner.json $HOME/.config/karabiner/karabiner.json"
 echo $cmd
 $cmd
+
+echo "\n=== MANUAL STEPS ==="
+# iTerm2
+echo "Now go to iTerm Prferences, check \"Load preferences from a custom folder or URL\" and enter `pwd`/config"
