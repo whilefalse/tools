@@ -19,3 +19,12 @@ for x in `ls vscode`; do
   echo $cmd
   eval $cmd
 done
+
+# Karabiner
+cmd="ln -s"
+if [ "$1" == "-f" ]; then
+  cmd+="f"
+fi
+cmd+=" `pwd`/config/karabiner.json $HOME/.config/karabiner/karabiner.json"
+echo $cmd
+$cmd
