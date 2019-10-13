@@ -1,6 +1,6 @@
 # Dotfiles: vim, tmux, zsh etc
 for x in `ls -A dotfiles`; do
-  cmd="ln -s"
+  cmd="ln -sh"
   if [ "$1" == "-f" ]; then
     cmd+="f"
   fi
