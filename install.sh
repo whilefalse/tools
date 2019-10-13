@@ -57,3 +57,4 @@ echo "1. Go to iTerm Prferences, check \"Load preferences from a custom folder o
 echo "2. Increase Key Repeat and decrease Delay Until Repeat in Sytem Preferences"
 echo "3. Install Oh My Zsh if it's not installed. Then restore ~/.zshrc"
 echo "4. Set Zsh as login shell if it's not already"
+echo "5. Update Git email if necessary. And setup SSH and GPG keys in GitHub"
