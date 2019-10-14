@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/steve/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -61,7 +61,7 @@ ZSH_THEME=""
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=$HOME/Dev/custom-zsh
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -105,7 +105,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Custom prompt
-PROMPT='%F{yellow}%n%{$reset_color%}@%F{green}%m: %F{cyan}%~%F{yellow}$(__git_ps1)'$'\n''%F{red}λ %{$reset_color%}'
+PROMPT='%F{yellow}%n%{$reset_color%}@%F{green}%m: %F{cyan}%~%F{yellow}$(__git_ps1)'$'%{$reset_color%} $(kube_ps1)\n''%F{red}λ %{$reset_color%}'
+RPROMPT=''
 GIT_PS1_SHOWDIRTYSTATE=1
 EDITOR=vim
 
@@ -130,3 +131,14 @@ fi
 
 # Personal aliases
 alias gs="git status"
+
+# Technology specific stuff stuff
+. /usr/local/opt/asdf/asdf.sh
+export PATH="/usr/local/opt/node@10/bin:$PATH"
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
