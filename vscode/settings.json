@@ -33,6 +33,10 @@
     "vim.cursorStylePerMode.normal": "block",
     "vim.textwidth": 98,
     "vim.hlsearch": true,
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-e>": false
+    },
      "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
