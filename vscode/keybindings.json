@@ -3,5 +3,17 @@
     {
         "key": "Cmd+`",
         "command": "workbench.action.quickSwitchWindow"
+    },
+    {
+        "key": "cmd+n",
+        "command": "explorer.newFile"
+    },
+    {
+        "key": "cmd+ctrl+n",
+        "command": "explorer.newFolder"
+    },
+    {
+        "key": "alt+cmd+n",
+        "command": "workbench.action.files.newUntitledFile"
     }
 ]
