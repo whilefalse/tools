@@ -96,5 +96,4 @@
         "files.insertFinalNewline": true
     },
     "diffEditor.renderSideBySide": false,
-    "workbench.editor.showTabs": false
 }
