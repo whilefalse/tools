@@ -65,6 +65,8 @@
     ],
     //Window
     "window.zoomLevel": 0,
+    //Elixir
+    "elixirLS.suggestSpecs": false,
     // Language formatting settings
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
