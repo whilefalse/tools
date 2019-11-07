@@ -109,6 +109,7 @@ PROMPT='%F{yellow}%n%{$reset_color%}@%F{green}%m: %F{cyan}%~%F{yellow}$(__git_ps
 RPROMPT=''
 GIT_PS1_SHOWDIRTYSTATE=1
 EDITOR=vim
+unsetopt share_history
 
 # vi-mode interprets delete key code as "capitalise 3 letters"
 # This fixes that. See https://github.com/robbyrussell/oh-my-zsh/pull/7978
