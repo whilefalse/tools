@@ -10,3 +10,5 @@
 	autosquash = true
 [commit]
 	gpgsign = true
+[core]
+	excludesfile = ~/.gitignore

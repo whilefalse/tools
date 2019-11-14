@@ -5,7 +5,6 @@
         "editorCursor.foreground": "#839496",
         "editorRuler.foreground": "#93A1A180"
     },
-    "workbench.colorTheme": "Solarized Dark",
     // Terminal
     "terminal.integrated.shell.osx": "/bin/zsh",
     // Editor
@@ -95,5 +94,12 @@
         "files.trimTrailingWhitespace": true,
         "files.insertFinalNewline": true
     },
+    "rust.clippy_preference": "on",
     "diffEditor.renderSideBySide": false,
+    "files.exclude": {
+        "_build": true,
+        ".elixir_ls": true,
+        "deps": true
+    },
+    "workbench.colorTheme": "Solarized Dark",
 }
